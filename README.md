@@ -5,4 +5,4 @@ data from [luftdaten.info](https://luftdaten.info/)
 
 API: http://api.luftdaten.info/static/v1/data.json
 
-It is supposed to run on a cloud VM instance and save data to the relational database postgresql.
+It is supposed to run on a AWS cloud VM (EC2) instance and save data to the dynamoDB.
