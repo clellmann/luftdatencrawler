@@ -22,5 +22,6 @@ if __name__=='__main__':
     sensordata = filter_pm_data(res)
     dynamodb = boto3.resource('dynamodb', region_name='us-west-1', aws_access_key_id=os.environ['ACCESS_KEY'], aws_secret_access_key=os.environ['SECRET'])
     table = dynamodb.Table('luftdaten')
-    for sensordate in sensordata:
-        table.put_item(Item=sensordate)
+    with table.batch_writer() as batch:
+        for sensordate in sensordata:
+            batch.put_item(Item=sensordate)
