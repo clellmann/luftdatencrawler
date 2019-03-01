@@ -14,7 +14,7 @@ def filter_pm_data(json):
     Returns (list): List of filtered sensor data jsons.
 
     """
-    return [elem for elem in json if any([True if 'P1' in data.values() or 'P2' in data.values() else False for data in elem['sensordatavalues']])]
+    return [elem for elem in json if any([True if 'P1' in data.values() or 'P2' in data.values() else False for data in elem['sensordatavalues']]) and elem['location']['altitude']]
 
 
 if __name__=='__main__':
